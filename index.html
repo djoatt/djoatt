@@ -29,6 +29,7 @@ body::before{
   src: url('https://example.com/Gazzetta-ExtraBold.ttf') format('truetype');
   font-weight: 900;
 }
+
 /* Barra fixa */
 .topbar{
   position:fixed; top:0; left:0; width:100%; height:70px;
@@ -154,6 +155,53 @@ body::before{
 .evento-info span{font-size:14px;opacity:0.8;}
 .evento a{background:#ff9000;color:#fff;font-weight:700;text-decoration:none;padding:10px 20px;border-radius:6px;font-size:15px;margin-right:15px;transition:background .3s;}
 .evento a:hover{background:#e57f00;}
+
+/* ===== Ajuste EVENTO somente para mobile ===== */
+@media(max-width:600px){
+  .evento {
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .evento .data {
+    width: 100%;
+    background: #000;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 32px;
+    font-weight: 900;
+  }
+
+  .evento .data span {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #aaa;
+  }
+
+  .evento-info {
+    text-align: center;
+    padding: 15px;
+  }
+
+  .evento-info h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .evento-info span {
+    font-size: 13px;
+    color: #ccc;
+  }
+
+  .evento a {
+    display: block;
+    width: 150%;
+    text-align: center;
+    margin-top: 15px;
+  }
+}
 /* Rooms */
 .rooms-wrapper{width:90%;max-width:1920px;margin:0 auto;text-align:left;}
 .rooms-titulo{font-size:100px;font-weight:700;color:#ff9000;margin-bottom:10px;}
@@ -166,6 +214,32 @@ body::before{
 .room-info p{font-size:16px;color:#ccc;margin-bottom:20px;}
 .room-info a{margin-top:auto;display:inline-block;min-width:120px;background:#ff9000;color:#191919;font-weight:900;text-decoration:none;padding:12px 150px;border-radius:5px;transition:background .3s;}
 .room-info a:hover{background:#e57f00;}
+
+@media(max-width:600px){
+  .rooms-container {
+    grid-template-columns: 1fr;
+  }
+
+  .room-info {
+    text-align: center;
+    align-items: center;
+  }
+
+  .room-info h3 {
+    font-size: 22px;
+  }
+
+  .room-info p {
+    font-size: 14px;
+  }
+
+  .room-info a {
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+  }
+}
+
 /* -------- SEÇÃO PARCEIROS -------- */
 .parceiros-wrapper{width:90%;max-width:1920px;margin:0 auto;text-align:left;}
 .parceiros-titulo{font-size:100px;font-weight:700;color:#ff9000;margin-bottom:10px;}
@@ -202,7 +276,7 @@ body::before{
 .btn-instagram:hover{background:#ff9000;color:#191919;}
 @media(max-width:900px){
   .patrocinador-wrapper{text-align:center;background:linear-gradient(to bottom,rgba(255,144,0,0.15),transparent);}
-  .patrocinador-titulo{font-size:42px;text-align:center;}
+  .patrocinador-titulo{font-size:30px;text-align:center;}
   .patrocinador-subtitulo{font-size:18px;text-align:center;margin-bottom:25px;}
   .patrocinador-card{flex-direction:column;text-align:center;gap:20px;}
 }
