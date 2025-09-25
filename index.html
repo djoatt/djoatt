@@ -310,10 +310,10 @@ body::before{
 }
 
 /* Container de parceiros */
-.parceiros-container{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); /* Ajusta dinamicamente a quantidade de colunas */
-  gap:20px;
+.parceiros-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .parceiro-card{
@@ -365,27 +365,24 @@ body::before{
   background:#e57f00;
 }
 
-/* Responsividade */
-@media(max-width:1000px){
-  .parceiros-container{
-    grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
-  }
-}
-
+/* Mobile */
 @media (max-width: 600px) {
-  .parceiros-container{
-    display:flex;
-    flex-direction:column; /* Empilha todos os parceiros */
-    align-items:stretch;
-    gap:20px;
+  .parceiros-container {
+    display: grid; /* grid funciona melhor que flex aqui */
+    grid-template-columns: 1fr; /* uma coluna */
+    gap: 20px;
   }
 
-  .parceiro-info h3{
-    font-size:16px;
+  .parceiro-card {
+    flex: 1 1 auto; /* garante que o card ocupe todo o espaço */
   }
 
-  .parceiro-info p{
-    font-size:13px;
+  .parceiro-info h3 {
+    font-size: 16px;
+  }
+
+  .parceiro-info p {
+    font-size: 13px;
   }
 }
 
