@@ -305,9 +305,19 @@ body::before{
   .parceiros-container{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:600px){
-  .parceiros-container{grid-template-columns:1fr;}
-  .parceiro-card h3{font-size:16px;}
-  .parceiro-card p{font-size:13px;}
+  .parceiros-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 10px; /* opcional, para dar espaço ao scroll */
+  }
+  .parceiro-card {
+    min-width: 250px; /* ajuste conforme a largura desejada */
+    flex: 0 0 auto;
+  }
+  .parceiro-card h3 { font-size:16px; }
+  .parceiro-card p { font-size:13px; }
 }
 /* Patrocinadores */
 .patrocinador-wrapper{width:90%;max-width:1920px;margin:0 auto;padding:40px 30px;background:linear-gradient(to right,rgba(255,144,0,0.15),transparent);border-radius:12px;}
