@@ -95,6 +95,54 @@ body::before{
   opacity:1;
   transform:translateY(0);
 }
+
+/* ========== VÍDEOS ========== */
+.videos-wrapper{width:90%;max-width:1920px;margin:0 auto;text-align:left;}
+.videos-titulo{font-size:100px;font-weight:900;color:#ff9000;margin-bottom:10px;}
+.videos-subtitulo{font-size:40px;color:#ddd;margin-bottom:30px;}
+.videos-container{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:20px;
+}
+.video-card{
+  background:#000;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,0.6);
+  display:flex;
+  flex-direction:column;
+}
+.video-embed{
+  position:relative;
+  width:100%;
+  padding-top:56.25%; /* 16:9 */
+}
+.video-embed iframe,
+.video-embed video{
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  border:0;
+}
+.video-info{
+  padding:15px 20px;
+  background:#191919;
+  text-align:left;
+}
+.video-info h3{font-size:20px;font-weight:700;color:#ff9000;margin-bottom:5px;}
+.video-info p{font-size:15px;color:#ccc;margin:0;}
+
+/* Responsividade */
+@media(max-width:1000px){
+  .videos-container{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+  .videos-container{grid-template-columns:1fr;}
+  .videos-titulo{font-size:40px;}
+  .videos-subtitulo{font-size:18px;}
+}
+
 /* ========== GALERIA ========== */
 .galeria-wrapper{width:90%;max-width:1920px;margin:0 auto;text-align:left;}
 .galeria-titulo{font-size:100px;font-weight:900;color:#ff9000;margin-bottom:10px;}
@@ -320,6 +368,7 @@ body::before{
     <a href="#inicio">Início</a>
     <a href="#eventos">Eventos</a>
     <a href="#rooms">Rooms</a>
+    <a href="#videos">Videos</a>
     <a href="#galeria">Galeria</a>
     <a href="#patrocinador">Patrocinador</a>    
     <a href="#parceiros">Parceiros</a>       
@@ -344,6 +393,9 @@ body::before{
   </div>
 </div>
 
+
+
+
 <!-- Seção Eventos -->
 <div id="eventos" class="section fade">
   <div class="eventos-wrapper">
@@ -353,6 +405,59 @@ body::before{
       <div class="evento"><div class="data">23 <span>Setembro</span></div><div class="evento-info"><h3>DJ OATT - FESTA SK8 (EVENTO EMPORIUM)</h3><span>ÀS 21:00</span></div><a href="https://go.imvu.com/chat/room-381678241-139/" target="_blank">ACESSAR</a></div>
       <div class="evento"><div class="data">28 <span>Setembro</span></div><div class="evento-info"><h3>DJ OATT - DOMINGUEIRA (ENCONTROS DE DJ's)</h3><span>ÀS 19:00</span></div><a href="https://go.imvu.com/chat/room-381678241-139/" target="_blank">ACESSAR</a></div>
       <div class="evento"><div class="data">01 <span>Outubro</span></div><div class="evento-info"><h3>DJ OATT - BATALHA DE DJ's (EVENTO EMPORIUM)</h3><span>ÀS 21:00</span></div><a href="https://go.imvu.com/chat/room-381678241-139/" target="_blank">ACESSAR</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- Seção Vídeos -->
+<!--<div id="videos" class="section fade">
+  <div class="videos-wrapper">
+    <h2 class="videos-titulo">VÍDEOS</h2>
+    <p class="videos-subtitulo">Assista aos melhores momentos e performances!</p>
+    <div class="videos-container">
+
+      <!-- Card 1 - YouTube -->
+      <!--<div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" 
+                  title="YouTube video player" frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3>DJ OATT - Mix Especial</h3>
+          <p>Set explosivo cheio de energia!</p>
+        </div>
+      </div>
+
+      <!-- Card 2 - Vídeo no Imgur 
+      <div class="video-card">
+        <div class="video-embed">
+          <video controls>
+            <source src="https://i.imgur.com/8RKXAIV.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo.
+          </video>
+        </div>
+        <div class="video-info">
+          <h3>Aftermovie</h3>
+          <p>Resumo da festa com os melhores momentos!</p>
+        </div>
+      </div>
+
+      <!--Card 3 
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                  title="YouTube video player" frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Behind the Scenes</h3>
+          <p>Bastidores da produção e da equipe!</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -372,21 +477,23 @@ body::before{
 </div>
 
 <!-- Seção Galeria -->
-<!-- <div id="galeria" class="section fade">
+  <div id="galeria" class="section fade">
   <div class="galeria-wrapper">
     <h2 class="galeria-titulo">GALERIA</h2>
     <p class="galeria-subtitulo">Momentos marcantes e registros incríveis!</p>
     <div class="galeria-container">
-      <div class="galeria-card"><img src="https://i.imgur.com/LAbIdHF.jpeg" class="galeria-img" alt="Galeria 1"><div class="galeria-info"><h3>Show Especial</h3><p>Noite inesquecível com muito som!</p></div></div>
-      <div class="galeria-card"><img src="https://i.imgur.com/LAbIdHF.jpeg" class="galeria-img" alt="Galeria 2"><div class="galeria-info"><h3>Festa da Cidade</h3><p>Agitando geral com muita energia!</p></div></div>
-      <div class="galeria-card"><img src="https://i.imgur.com/LAbIdHF.jpeg" class="galeria-img" alt="Galeria 3"><div class="galeria-info"><h3>Backstage</h3><p>Momentos únicos com a equipe!</p></div></div>
-      <div class="galeria-card"><img src="https://i.imgur.com/LAbIdHF.jpeg" class="galeria-img" alt="Galeria 4"><div class="galeria-info"><h3>Noite de Gala</h3><p>Show de luzes e vibração!</p></div></div>
-      <div class="galeria-card"><img src="https://i.imgur.com/LAbIdHF.jpeg" class="galeria-img" alt="Galeria 3"><div class="galeria-info"><h3>Backstage</h3><p>Momentos únicos com a equipe!</p></div></div>
-      <div class="galeria-card"><img src="https://i.imgur.com/LAbIdHF.jpeg" class="galeria-img" alt="Galeria 4"><div class="galeria-info"><h3>Noite de Gala</h3><p>Show de luzes e vibração!</p></div></div>
+      <div class="galeria-card"><img src="https://i.imgur.com/oZMc28k.png" class="galeria-img" alt="Galeria 1"><div class="galeria-info"><h3>Aniversário do DJ Oatt</h3><p>Noite inesquecível com muito som!</p></div></div>
+      <div class="galeria-card"><img src="https://i.imgur.com/w58I4s5.png" class="galeria-img" alt="Galeria 2"><div class="galeria-info"><h3>Aniversário do DJ Oatt</h3><p>Familia Base de tudo!</p></div></div>
+      <div class="galeria-card"><img src="https://i.imgur.com/sa3DYkg.png" class="galeria-img" alt="Galeria 3"><div class="galeria-info"><h3>Aniversário do DJ Oatt</h3><p>Familia e Amigos!</p></div></div>
+      <div class="galeria-card"><img src="https://i.imgur.com/nIsXWQ8.png" class="galeria-img" alt="Galeria 4"><div class="galeria-info"><h3>Aniversário do DJ Oatt</h3><p>Amor da minha vida!</p></div></div>
+      <div class="galeria-card"><img src="https://i.imgur.com/le9Nntc.png" class="galeria-img" alt="Galeria 3"><div class="galeria-info"><h3>Aniversário do DJ Oatt</h3><p>É nois tiozãooo!</p></div></div>
+      <div class="galeria-card"><img src="https://i.imgur.com/G0IqoML.png" class="galeria-img" alt="Galeria 4"><div class="galeria-info"><h3>Aniversário do DJ Oatt</h3><p>Tmj Dj Oliver meu irmão!</p></div></div>
     </div>      
     </div>
   </div>
 </div>
+
+
 
 <!-- Patrocinador -->
 <div id="patrocinador" class="section fade">
@@ -451,6 +558,8 @@ body::before{
       <div class="parceiro-card"><img src="https://i.imgur.com/v79gizN.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>Emporium</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/eventos_emporium_ofc">Instagram</a></div></div>
       <div class="parceiro-card"><img src="https://i.imgur.com/o9C0dvG.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>Visteon</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/produtora_visteon_imvu/">Instagram</a></div></div>
       <div class="parceiro-card"><img src="https://i.imgur.com/YLE4XmC.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>Domingueira</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/dj_saymon_cygano/">Instagram</a></div></div>
+      <div class="parceiro-card"><img src="https://i.imgur.com/Xb5vcjo.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>De Férias com Ex</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/deferiascomex_imvu/">Instagram</a></div></div>
+      <div class="parceiro-card"><img src="https://i.imgur.com/uE8hXG4.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>Aphordite Fashion</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/aphorditefashion/">Instagram</a></div></div>
     </div>
   </div>
 </div>
