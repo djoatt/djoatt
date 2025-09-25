@@ -300,23 +300,20 @@ body::before{
 .parceiro-info p{font-size:15px;color:#ccc;margin-bottom:15px;}
 .parceiro-info a{display:inline-block;background:#ff9000;color:#191919;font-weight:700;text-decoration:none;padding:10px 16px;border-radius:6px;transition:background .3s;}
 .parceiro-info a:hover{background:#e57f00;}
-@media(max-width:600px){
-  /* Ajuste da seção para mobile */
-  .section {
-    align-items: stretch;       /* permite que os filhos ocupem a largura disponível */
-    justify-content: flex-start; /* inicia do topo */
-    padding: 80px 20px;         /* ajuste de espaçamento */
+/* Responsividade seção Parceiros */
+@media(max-width:1000px){
+  .parceiros-container {
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 20px; /* garante espaçamento entre linhas */
   }
-
-  /* Container de parceiros em uma coluna */
+}
+@media(max-width:600px){
   .parceiros-container {
     grid-template-columns: 1fr; /* cada parceiro em uma linha */
-    row-gap: 20px;              /* espaço entre os parceiros */
+    row-gap: 20px; /* espaçamento vertical */
   }
-
-  /* Ajuste de fontes dos cards */
-  .parceiro-card h3 { font-size: 16px; }
-  .parceiro-card p { font-size: 13px; }
+  .parceiro-card h3 { font-size:16px; }
+  .parceiro-card p { font-size:13px; }
 }
 /* Patrocinadores */
 .patrocinador-wrapper{width:90%;max-width:1920px;margin:0 auto;padding:40px 30px;background:linear-gradient(to right,rgba(255,144,0,0.15),transparent);border-radius:12px;}
