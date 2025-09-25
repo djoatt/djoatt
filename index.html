@@ -288,104 +288,6 @@ body::before{
   }
 }
 
-/* -------- SEÇÃO PARCEIROS -------- */
-.parceiros-wrapper{
-  width:90%;
-  max-width:1920px;
-  margin:0 auto;
-  text-align:left;
-}
-
-.parceiros-titulo{
-  font-size:100px;
-  font-weight:700;
-  color:#ff9000;
-  margin-bottom:10px;
-}
-
-.parceiros-subtitulo{
-  font-size:40px;
-  color:#ddd;
-  margin-bottom:30px;
-}
-
-/* Container de parceiros */
-.parceiros-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
-
-.parceiro-card{
-  background:#000;
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:0 4px 12px rgba(0,0,0,0.6);
-  display:flex;
-  flex-direction:column;
-}
-
-.parceiro-img{
-  width:100%;
-  height:auto;
-  display:block;
-}
-
-.parceiro-info{
-  padding:15px 20px;
-  background:#191919;
-  text-align:left;
-}
-
-.parceiro-info h3{
-  font-size:20px;
-  font-weight:700;
-  color:#ff9000;
-  margin-bottom:5px;
-}
-
-.parceiro-info p{
-  font-size:15px;
-  color:#ccc;
-  margin-bottom:15px;
-}
-
-.parceiro-info a{
-  display:inline-block;
-  background:#ff9000;
-  color:#191919;
-  font-weight:700;
-  text-decoration:none;
-  padding:10px 16px;
-  border-radius:6px;
-  transition:background .3s;
-}
-
-.parceiro-info a:hover{
-  background:#e57f00;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .parceiros-container {
-    display: grid; /* grid funciona melhor que flex aqui */
-    grid-template-columns: 1fr; /* uma coluna */
-    gap: 20px;
-  }
-
-  .parceiro-card {
-    flex: 1 1 auto; /* garante que o card ocupe todo o espaço */
-  }
-
-  .parceiro-info h3 {
-    font-size: 16px;
-  }
-
-  .parceiro-info p {
-    font-size: 13px;
-  }
-}
-
 /* Patrocinadores */
 .patrocinador-wrapper{width:90%;max-width:1920px;margin:0 auto;padding:40px 30px;background:linear-gradient(to right,rgba(255,144,0,0.15),transparent);border-radius:12px;}
 .patrocinador-textos{margin-bottom:30px;}
@@ -423,15 +325,11 @@ body::before{
   .logo-container{flex-direction:column;gap:20px;margin-top:120px;}
   .galeria-titulo,.rooms-titulo,.eventos-titulo{font-size:60px;}
   .galeria-subtitulo,.rooms-subtitulo,.eventos-subtitulo{font-size:24px;}
-  .parceiros-titulo,.rooms-titulo,.eventos-titulo{font-size:60px;}
-  .parceiros-subtitulo,.rooms-subtitulo,.eventos-subtitulo{font-size:24px;}
 }
 @media(max-width:600px){
   .rooms-container,.galeria-container{grid-template-columns:1fr;}
   .galeria-titulo,.rooms-titulo,.eventos-titulo{font-size:40px;}
   .galeria-subtitulo,.rooms-subtitulo,.eventos-subtitulo{font-size:18px;}
-  .parceiros-titulo,.rooms-titulo,.eventos-titulo{font-size:40px;}
-  .parceiros-subtitulo,.rooms-subtitulo,.eventos-subtitulo{font-size:18px;}
   .footer-wrapper{grid-template-columns:1fr;text-align:center;}
 }
 </style>
@@ -447,8 +345,7 @@ body::before{
     <a href="#rooms">Rooms</a>
     <a href="#videos">Videos</a>
     <a href="#galeria">Galeria</a>
-    <a href="#patrocinador">Patrocinador</a>    
-    <a href="#parceiros">Parceiros</a>       
+    <a href="#patrocinador">Patrocinador</a>      
     <a href="#contato">Contato</a>
   </nav>
   <div class="menu-toggle">
@@ -612,35 +509,6 @@ body::before{
   </div>
 </div>
 
-
-
-
-<!-- Seção Parceiros -->
-<div id="parceiros" class="section fade">
-  <div class="parceiros-wrapper">
-    <h2 class="parceiros-titulo">PARCERIAS</h2>
-    <p class="parceiros-subtitulo">Nossos aliados oficiais no IMVU e Instagram!</p>
-    <div class="parceiros-container">
-      <!-- Exemplo Elite Shop -->
-      <div class="parceiro-card">
-        <img src="https://i.imgur.com/ThhrgHO.jpeg" alt="Angels" class="parceiro-img">
-        <div class="parceiro-info">
-          <h3>Angels</h3>
-          <p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p>
-          <a href="https://www.instagram.com/_angels_ac" target="_blank">Instagram</a>
-        </div>
-      </div>
-      <!-- Adicione +9 parceiros aqui -->
-      <div class="parceiro-card"><img src="https://i.imgur.com/AVjcFEz.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>Studio 54</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/studio54_ofc/">Instagram</a></div></div>
-      <div class="parceiro-card"><img src="https://i.imgur.com/v79gizN.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>Emporium</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/eventos_emporium_ofc">Instagram</a></div></div>
-      <div class="parceiro-card"><img src="https://i.imgur.com/o9C0dvG.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>Visteon</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/produtora_visteon_imvu/">Instagram</a></div></div>
-      <div class="parceiro-card"><img src="https://i.imgur.com/YLE4XmC.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>Domingueira</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/dj_saymon_cygano/">Instagram</a></div></div>
-      <div class="parceiro-card"><img src="https://i.imgur.com/Xb5vcjo.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>De Férias com Ex</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/deferiascomex_imvu/">Instagram</a></div></div>
-      <div class="parceiro-card"><img src="https://i.imgur.com/uE8hXG4.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>Aphordite Fashion</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/aphorditefashion/">Instagram</a></div></div>
-    </div>
-  </div>
-</div>
-
 <!-- Rodapé -->
 <footer id="contato" class="footer">
   <div class="footer-wrapper">
@@ -726,3 +594,4 @@ body::before{
 </script>
 </body>
 </html>
+
