@@ -288,18 +288,108 @@ body::before{
   }
 }
 
-/* Parceiros Style */
-.parceiros-wrapper{width:90%;max-width:1920px;margin:0 auto;text-align:left;}
-.parceiros-titulo{font-size:100px;font-weight:700;color:#ff9000;margin-bottom:10px;}
-.parceiros-subtitulo{font-size:40px;color:#ddd;margin-bottom:40px;}
-.parceiros-container{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;}
-.parceiros-card{background:rgba(0,0,0,0.85);border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.6);text-align:left;display:flex;flex-direction:column;}
-.parceiros-img{width:100%;height:auto;display:block;}
-.parceiros-info {padding:20px;display:flex;flex-direction:column;align-items:left;text-align:left;justify-content:space-between;flex:1;}
-.parceiros-info h3{font-size:30px;font-weight:900;color:#ff9000;margin-bottom:10px;}
-.parceiros-info p{font-size:16px;color:#ccc;margin-bottom:20px;}
-.parceiros-info a{margin-top:auto;display:inline-block;min-width:120px;background:#ff9000;color:#191919;font-weight:900;text-decoration:none;padding:12px 150px;border-radius:5px;transition:background .3s;}
-.parceiros-info a:hover{background:#e57f00;}
+/* ===== Parceiros ===== */
+.parceiros-wrapper {
+  width: 90%;
+  max-width: 1920px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.parceiros-titulo {
+  font-size: 100px;
+  font-weight: 700;
+  color: #ff9000;
+  margin-bottom: 10px;
+}
+
+.parceiros-subtitulo {
+  font-size: 40px;
+  color: #ddd;
+  margin-bottom: 40px;
+}
+
+/* Desktop = grid de 5 */
+.parceiros-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+/* Mobile = carrossel horizontal */
+@media (max-width: 1024px) {
+  .parceiros-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 15px;
+    scroll-behavior: smooth;
+  }
+
+  .parceiros-card {
+    flex: 0 0 250px;
+    scroll-snap-align: start;
+  }
+
+  .parceiros-container::-webkit-scrollbar {
+    display: none; /* some a barra no mobile */
+  }
+}
+
+/* Cards */
+.parceiros-card {
+  background: rgba(0,0,0,0.85);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.parceiros-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.parceiros-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.parceiros-info h3 {
+  font-size: 22px;
+  font-weight: 900;
+  color: #ff9000;
+  margin-bottom: 10px;
+}
+
+.parceiros-info p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.parceiros-info a {
+  display: inline-block;
+  background: #ff9000;
+  color: #191919;
+  font-weight: 900;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.parceiros-info a:hover {
+  background: #e57f00;
+}
 
 @media(max-width:600px){
   .parceiros-container {
@@ -645,6 +735,33 @@ body::before{
         msg.style.display = "auto";
       });
     });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.querySelector(".parceiros-container");
+
+    if (window.innerWidth <= 1024 && container) {
+      let scrollAmount = 0;
+      let scrollStep = 1; // velocidade (quanto menor, mais lento)
+      let maxScroll = container.scrollWidth - container.clientWidth;
+
+      function autoScroll() {
+        if (scrollAmount >= maxScroll) {
+          scrollAmount = 0; // volta pro início
+        } else {
+          scrollAmount += scrollStep;
+        }
+        container.scrollTo({ left: scrollAmount, behavior: "smooth" });
+      }
+
+      let autoPlay = setInterval(autoScroll, 50); // tempo de movimento
+
+      // Se o usuário mexer com dedo/mouse, pausa e depois volta
+      container.addEventListener("touchstart", () => clearInterval(autoPlay));
+      container.addEventListener("mousedown", () => clearInterval(autoPlay));
+      container.addEventListener("touchend", () => autoPlay = setInterval(autoScroll, 50));
+      container.addEventListener("mouseup", () => autoPlay = setInterval(autoScroll, 50));
+    }
+  });
 
   // Fade on scroll
   const faders = document.querySelectorAll('.fade');
