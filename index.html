@@ -288,6 +288,44 @@ body::before{
   }
 }
 
+/* Parceiros Style */
+.parceiros-wrapper{width:90%;max-width:1920px;margin:0 auto;text-align:left;}
+.parceiros-titulo{font-size:100px;font-weight:700;color:#ff9000;margin-bottom:10px;}
+.parceiros-subtitulo{font-size:40px;color:#ddd;margin-bottom:40px;}
+.parceiros-container{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;}
+.parceiros-card{background:rgba(0,0,0,0.85);border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.6);text-align:left;display:flex;flex-direction:column;}
+.parceiros-img{width:100%;height:auto;display:block;}
+.parceiros-info {padding:20px;display:flex;flex-direction:column;align-items:left;text-align:left;justify-content:space-between;flex:1;}
+.parceiros-info h3{font-size:30px;font-weight:900;color:#ff9000;margin-bottom:10px;}
+.parceiros-info p{font-size:16px;color:#ccc;margin-bottom:20px;}
+.parceiros-info a{margin-top:auto;display:inline-block;min-width:120px;background:#ff9000;color:#191919;font-weight:900;text-decoration:none;padding:12px 150px;border-radius:5px;transition:background .3s;}
+.parceiros-info a:hover{background:#e57f00;}
+
+@media(max-width:600px){
+  .parceiros-container {
+    grid-template-columns: 1fr;
+  }
+
+  .parceiros-info {
+    text-align: center;
+    align-items: center;
+  }
+
+  .parceiros-info h3 {
+    font-size: 22px;
+  }
+
+  .parceiros-info p {
+    font-size: 14px;
+  }
+
+  .parceiros-info a {
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+  }
+}
+
 /* Patrocinadores */
 .patrocinador-wrapper{width:90%;max-width:1920px;margin:0 auto;padding:40px 30px;background:linear-gradient(to right,rgba(255,144,0,0.15),transparent);border-radius:12px;}
 .patrocinador-textos{margin-bottom:30px;}
@@ -317,7 +355,7 @@ body::before{
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);margin-top:40px;padding-top:20px;text-align:center;font-size:14px;color:#999;}
 /* Ajustes responsivos gerais */
 @media(max-width:1000px){
-  .rooms-container,.eventos-container,.galeria-container{grid-template-columns:repeat(2,1fr);}
+  .rooms-container,.parceiros-container,.eventos-container,.galeria-container{grid-template-columns:repeat(2,1fr);}
   .footer-wrapper{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:800px){
@@ -327,9 +365,9 @@ body::before{
   .galeria-subtitulo,.rooms-subtitulo,.eventos-subtitulo{font-size:24px;}
 }
 @media(max-width:600px){
-  .rooms-container,.galeria-container{grid-template-columns:1fr;}
-  .galeria-titulo,.rooms-titulo,.eventos-titulo{font-size:40px;}
-  .galeria-subtitulo,.rooms-subtitulo,.eventos-subtitulo{font-size:18px;}
+  .rooms-container,.parceiros-container,.galeria-container{grid-template-columns:1fr;}
+  .galeria-titulo,.rooms-titulo,.parceiros-titulo,.eventos-titulo{font-size:40px;}
+  .galeria-subtitulo,.rooms-subtitulo,.parceiros-subtitulo,.eventos-subtitulo{font-size:18px;}
   .footer-wrapper{grid-template-columns:1fr;text-align:center;}
 }
 </style>
@@ -345,7 +383,8 @@ body::before{
     <a href="#rooms">Rooms</a>
     <a href="#videos">Videos</a>
     <a href="#galeria">Galeria</a>
-    <a href="#patrocinador">Patrocinador</a>      
+    <a href="#patrocinador">Patrocinador</a>    
+    <a href="#parceiros">Parceiros</a>       
     <a href="#contato">Contato</a>
   </nav>
   <div class="menu-toggle">
@@ -509,6 +548,50 @@ body::before{
   </div>
 </div>
 
+
+<!-- Seção Parceiros Oficiais -->
+<div id="parceiros" class="section fade">
+  <div class="parceiros-wrapper">
+    <h2 class="parceiros-titulo">PARCERIAS</h2>
+    <p class="parceiros-subtitulo">Nossos aliados oficiais no IMVU e Instagram!</p>
+    <div class="parceiros-container">
+      <div class="parceiros-card"><img src="https://i.imgur.com/ThhrgHO.jpeg" alt="Angels" class="parceiros-img"><div class="parceiros-info"><h3>Angels</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/_angels_ac" target="_blank">Instagram</a></div></div>
+      <div class="parceiros-card"><img src="https://i.imgur.com/AVjcFEz.jpeg" alt="Studio 54" class="parceiros-img"><div class="parceiros-info"><h3>Studio 54</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/studio54_ofc/" target="_blank">Instagram</a></div></div>
+      <div class="parceiros-card"><img src="https://i.imgur.com/v79gizN.jpeg" alt="Emporium" class="parceiros-img"><div class="parceiros-info"><h3>Emporium</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/eventos_emporium_ofc" target="_blank">Instagram</a></div></div>
+      <div class="parceiros-card"><img src="https://i.imgur.com/o9C0dvG.jpeg" alt="Visteon" class="parceiros-img"><div class="parceiros-info"><h3>Visteon</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/produtora_visteon_imvu/" target="_blank">Instagram</a></div></div>
+      <div class="parceiros-card"><img src="https://i.imgur.com/YLE4XmC.jpeg" alt="Domingueira" class="parceiros-img"><div class="parceiros-info"><h3>Domingueira</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/dj_saymon_cygano/" target="_blank">Instagram</a></div></div>
+      <div class="parceiros-card"><img src="https://i.imgur.com/Xb5vcjo.jpeg" alt="De Férias com Ex" class="parceiros-img"><div class="parceiros-info"><h3>De Férias com Ex</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/deferiascomex_imvu/" target="_blank">Instagram</a></div></div>
+      <div class="parceiros-card"><img src="https://i.imgur.com/uE8hXG4.jpeg" alt="Aphordite Fashion" class="parceiros-img"><div class="parceiros-info"><h3>Aphordite Fashion</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/aphorditefashion/" target="_blank">Instagram</a></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Seção Parceiros Modelo Antigo
+<div id="parceiros" class="section fade">
+  <div class="parceiros-wrapper">
+    <h2 class="parceiros-titulo">PARCERIAS</h2>
+    <p class="parceiros-subtitulo">Nossos aliados oficiais no IMVU e Instagram!</p>
+    <div class="parceiros-container">
+      <!-- Exemplo Elite Shop 
+      <div class="parceiro-card">
+        <img src="https://i.imgur.com/ThhrgHO.jpeg" alt="Angels" class="parceiro-img">
+        <div class="parceiro-info">
+          <h3>Angels</h3>
+          <p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p>
+          <a href="https://www.instagram.com/_angels_ac" target="_blank">Instagram</a>
+        </div>
+      </div>
+      <!-- Adicione +9 parceiros aqui 
+      <div class="parceiro-card"><img src="https://i.imgur.com/AVjcFEz.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>Studio 54</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/studio54_ofc/">Instagram</a></div></div>
+      <div class="parceiro-card"><img src="https://i.imgur.com/v79gizN.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>Emporium</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/eventos_emporium_ofc">Instagram</a></div></div>
+      <div class="parceiro-card"><img src="https://i.imgur.com/o9C0dvG.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>Visteon</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/produtora_visteon_imvu/">Instagram</a></div></div>
+      <div class="parceiro-card"><img src="https://i.imgur.com/YLE4XmC.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>Domingueira</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/dj_saymon_cygano/">Instagram</a></div></div>
+      <div class="parceiro-card"><img src="https://i.imgur.com/Xb5vcjo.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>De Férias com Ex</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/deferiascomex_imvu/">Instagram</a></div></div>
+      <div class="parceiro-card"><img src="https://i.imgur.com/uE8hXG4.jpeg" class="parceiro-img"><div class="parceiro-info"><h3>Aphordite Fashion</h3><p>Equipe de promotores no IMVU, trazendo os melhores eventos, diversão e experiências únicas para a comunidade.</p><a href="https://www.instagram.com/aphorditefashion/">Instagram</a></div></div>
+    </div>
+  </div>
+</div> -->
+
 <!-- Rodapé -->
 <footer id="contato" class="footer">
   <div class="footer-wrapper">
@@ -594,5 +677,3 @@ body::before{
 </script>
 </body>
 </html>
-
-
