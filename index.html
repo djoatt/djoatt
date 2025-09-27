@@ -753,13 +753,13 @@ body::before{
         container.scrollTo({ left: scrollAmount, behavior: "smooth" });
       }
 
-      let autoPlay = setInterval(autoScroll, 50); // tempo de movimento
+      let autoPlay = setInterval(autoScroll, 25); // tempo de movimento
 
       // Se o usuário mexer com dedo/mouse, pausa e depois volta
       container.addEventListener("touchstart", () => clearInterval(autoPlay));
       container.addEventListener("mousedown", () => clearInterval(autoPlay));
-      container.addEventListener("touchend", () => autoPlay = setInterval(autoScroll, 50));
-      container.addEventListener("mouseup", () => autoPlay = setInterval(autoScroll, 50));
+      container.addEventListener("touchend", () => autoPlay = setInterval(autoScroll, 25));
+      container.addEventListener("mouseup", () => autoPlay = setInterval(autoScroll, 25));
     }
   });
 
