@@ -718,48 +718,71 @@ body::before{
   const navLinks = nav.querySelectorAll('a');
   navLinks.forEach(link => link.addEventListener('click', () => nav.classList.remove('active')));
 
-      window.addEventListener('#inicio', () => {
-      const player = document.getElementById('radio-player');
-      const msg = document.getElementById('play-msg');
-      player.volume = 0.5;
+  document.addEventListener("DOMContentLoaded", function () {
+    const player = document.getElementById("radio-player");
 
-      // Tenta iniciar automaticamente
-      player.play().catch(() => {
-        // Se o navegador bloquear, mostra aviso
-        msg.style.display = "block";
-      });
+    // Garante que a fonte esteja correta
+    player.src = "https://jpdofunk3.com.br/stream/djoatt";
+    player.load();
 
-      // Se o usuário clicar na mensagem, inicia
-      msg.addEventListener('click', () => {
-        player.play();
-        msg.style.display = "auto";
+    // Função para tocar
+    function playRadio() {
+      player.play().catch(err => {
+        console.log("Tentativa de autoplay bloqueada:", err);
       });
-    });
+    }
+
+    // Tenta autoplay ao carregar
+    playRadio();
+
+    // Se for bloqueado, tenta no primeiro clique ou toque
+    document.body.addEventListener("click", playRadio, { once: true });
+    document.body.addEventListener("touchstart", playRadio, { once: true });
+  });
 
   document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector(".parceiros-container");
 
     if (window.innerWidth <= 1024 && container) {
-      let scrollAmount = 0;
-      let scrollStep = 1; // velocidade (quanto menor, mais lento)
-      let maxScroll = container.scrollWidth - container.clientWidth;
-
-      function autoScroll() {
-        if (scrollAmount >= maxScroll) {
-          scrollAmount = 0; // volta pro início
-        } else {
-          scrollAmount += scrollStep;
-        }
-        container.scrollTo({ left: scrollAmount, behavior: "smooth" });
+      const cards = container.querySelectorAll(".parceiros-card");
+      let currentIndex = 0;
+      let cardWidth = cards[0].offsetWidth + 20; // largura do card + gap (20px)
+      
+      function scrollToCard(index) {
+        container.scrollTo({
+          left: index * cardWidth,
+          behavior: "smooth"
+        });
       }
 
-      let autoPlay = setInterval(autoScroll, 25); // tempo de movimento
+      // autoplay a cada 2 segundos
+      let autoPlay = setInterval(() => {
+        currentIndex++;
+        if (currentIndex >= cards.length) {
+          currentIndex = 0; // volta pro início
+        }
+        scrollToCard(currentIndex);
+      }, 2000);
 
-      // Se o usuário mexer com dedo/mouse, pausa e depois volta
+      // pausa autoplay quando o usuário mexer
       container.addEventListener("touchstart", () => clearInterval(autoPlay));
       container.addEventListener("mousedown", () => clearInterval(autoPlay));
-      container.addEventListener("touchend", () => autoPlay = setInterval(autoScroll, 25));
-      container.addEventListener("mouseup", () => autoPlay = setInterval(autoScroll, 25));
+
+      // retoma autoplay quando parar de mexer
+      container.addEventListener("touchend", () => {
+        autoPlay = setInterval(() => {
+          currentIndex++;
+          if (currentIndex >= cards.length) currentIndex = 0;
+          scrollToCard(currentIndex);
+        }, 2000);
+      });
+      container.addEventListener("mouseup", () => {
+        autoPlay = setInterval(() => {
+          currentIndex++;
+          if (currentIndex >= cards.length) currentIndex = 0;
+          scrollToCard(currentIndex);
+        }, 2000);
+      });
     }
   });
 
